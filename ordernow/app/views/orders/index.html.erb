@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Orders</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Order index</h1>
+
+            <%= link_to 'New Order', new_order_path %>
+
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Nº</th>
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+
+                <% @orders.each do |order| %>
+                <tr>
+                    <td><%= order.data.try(:strftime,"%d/%m/%Y") %></td>
+                    <td><%= order.id %></td>
+                    <td><%= order.description %></td>
+                    <td><%= order.value %></td>
+                    <td><%= link_to 'Show', order_path(order) %></td>
+                    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+                    <td><%= link_to 'Destroy', order_path(order),method: :delete,data: { confirm: 'Are you sure?' } %></td>
+                    
+                    <% if (order.deliver) %>
+                        <td> -- x --</td>
+                    <% else %>
+                        <td><%= link_to 'Deliver', deliver_path(order) %></td>
+                    <% end %>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+
+    </body>
+</html>

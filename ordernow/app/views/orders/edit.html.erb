@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <%= link_to 'Back', orders_path %>
+
+            <div class="row">
+                <%= form_for @orders, url: {action: "update"} do |f| %>
+                    <h2>Date</h2>
+                     <%= f.date_field :data, as: :date, value: f.object.data %>
+                    <br>
+                    <h2>Description</h2>
+                    <br>
+                    <%= f.text_field :description %>
+                    <br>
+                    <h2>Value</h2>
+                    <%= f.number_field :value %>
+                    <br>
+                    <%= f.submit "Edit" %>
+                <% end %>
+            </div>
+
+
+            <% if @orders.errors.any? %>
+                <div id="error_explanation">
+                    <h2><%= pluralize(@orders.errors.count, "error") %> impedindo esse pedido de ser criado: </h2>
+
+                    <ul>
+                        <% @orders.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+        </div>
+    </body>
+</html>

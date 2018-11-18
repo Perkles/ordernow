@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+            <%= link_to 'Back', orders_path %>
+    <head>
+        <meta charset="utf-8">
+        <title>Order Details</title>
+    </head>
+    <body>
+        <p>
+            <strong>Date:</strong>
+            <%= @orders.data %>
+        </p>
+        <p>
+            <strong>Description:</strong>
+            <%= @orders.description %>
+        </p>
+        <p>
+            <strong>Value:</strong>
+            <%= @orders.value %>
+        </p>
+    </body>
+</html>
