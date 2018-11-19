@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'nodejs-rails'
 gem 'autoprefixer-rails'
+gem 'mini_racer'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

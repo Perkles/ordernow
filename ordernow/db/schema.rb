@@ -22,10 +22,4 @@ ActiveRecord::Schema.define(version: 20181118210633) do
     t.boolean  "deliver",     default: false
   end
 
-  create_table "orders_tables", force: :cascade do |t|
-    t.date  "data"
-    t.text  "description"
-    t.float "value"
-  end
-
 end
