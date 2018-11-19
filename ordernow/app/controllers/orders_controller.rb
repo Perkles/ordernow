@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
     def index
-        @orders = Order.all
+        @orders = Order.where(data: $request_date)
     end
 
     def new
@@ -11,7 +11,8 @@ class OrdersController < ApplicationController
     def create
         @orders = Order.new(orders_params)
         if @orders.save
-            redirect_to @orders
+            $request_date = @orders.data
+            redirect_to orders_path
         else
           render :new
         end
@@ -28,6 +29,7 @@ class OrdersController < ApplicationController
     def update
         @orders = Order.find(params[:id])
         if @orders.update(orders_params)
+            $request_date = @orders.data
             redirect_to @orders
         else
           render :edit
@@ -37,20 +39,32 @@ class OrdersController < ApplicationController
     def destroy
         @orders = Order.find(params[:id])
         @orders.destroy
-
         redirect_to orders_path
     end
 
     def deliver
         @orders = Order.find(params[:id])
-        p("kajsdhkadhjksadas34567890875")
-        p(@orders)
         if @orders.deliver == false
             @orders.deliver = true
             @orders.save
             redirect_to action: "index"
         else
         end
+    end
+
+    def tomorrow_order
+        $request_date += 1.day
+        redirect_to orders_path
+    end
+
+    def yesterday_order
+        $request_date -= 1.day
+        redirect_to orders_path
+    end
+
+    def today_order
+        $request_date = Date.today
+        redirect_to orders_path
     end
 
     private

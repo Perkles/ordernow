@@ -1,0 +1,51 @@
+body{
+    color: white;
+    background-color: #00B298;
+    font-size: 2vw;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+a:hover{
+    text-decoration: none;
+    color:#ff6635;
+}
+
+._icon{
+    font-size: 2.5vw;
+    display:block;
+    text-align: center;
+}
+.container{
+    margin-top: 10vw;
+}
+.table-responsive{
+    margin-left: 1px;
+}
+.no_data{
+    text-align: center;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+
+input[type="text"] {
+    color:#ff6635;
+}
+input[type="date"] {
+    color:#ff6635;
+}
+input[type="number"] {
+    color:#ff6635;
+}
+.btn{
+    background-color:#ff6635;;
+    color:white;
+    border-color:white;
+}
+.descricao{
+    margin-top: 2vw;
+
+}

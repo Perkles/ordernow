@@ -3,41 +3,39 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Orders</title>
+        <title>New Order</title>
+        <%= stylesheet_link_tag "custom.css" %>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
 
     <body>
+
         <div class="container">
-            
-            <%= link_to 'Back', orders_path %>
-
+            <%= link_to '<i class="fas fa-angle-left _icon"></i>'.html_safe, orders_path %>
             <div class="row">
-                <%= form_for @orders, url: {action: "create"} do |f| %>
-                    <h2>Date</h2>
-                    <%= date_field(:order, :data) %>
-                    <br>
-                    <h2>Description</h2>
-                    <br>
-                    <%= f.text_field :description %>
-                    <br>
-                    <h2>Value</h2>
-                    <%= f.number_field :value %>
-                    <br>
-                    <%= f.submit "Create" %>
-                <% end %>
-            </div>
+                <div class="col-sm-12 col-md-10 col-lg-12 _center">
+                    <%= form_for @orders, url: {action: "create"} do |f| %>
+                        <h2>Date</h2>
+                        <%= date_field(:order, :data) %>
+                        <h2>Description</h2>
+                        <%= f.text_field :description %>
+                        <h2>Value</h2>
+                        <%= f.number_field :value %>
+                        <%= f.submit "Create" ,class: 'btn' %>
+                    <% end %>
 
-            <% if @orders.errors.any? %>
-                <div id="error_explanation">
-                    <h2><%= pluralize(@orders.errors.count, "error") %> impedindo esse pedido de ser criado: </h2>
-
-                    <ul>
-                        <% @orders.errors.full_messages.each do |msg| %>
-                            <li><%= msg %></li>
-                        <% end %>
-                    </ul>
+                    <% if @orders.errors.any? %>
+                        <div id="error_explanation">
+                            <h2><%= pluralize(@orders.errors.count, "error") %> impedindo esse pedido de ser criado: </h2>
+                            <ul>
+                                <% @orders.errors.full_messages.each do |msg| %>
+                                    <li><%= msg %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    <% end %>
                 </div>
-            <% end %>
+            </div>
         </div>
 
     </body>

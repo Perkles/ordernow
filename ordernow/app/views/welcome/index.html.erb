@@ -1,4 +1,40 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit</title>
+        <%= stylesheet_link_tag "custom.css" %>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
 
-<%= link_to 'My Blog', controller: 'orders' %>
+            <%= link_to '<i class="fas fa-angle-right _icon"></i>'.html_safe, controller: 'orders' %>
+
+            <div class="row">
+                <div class="descricao">
+                <p style=text-align:justify;>
+                    <h1>Desenvolvimento Web II</h1>
+                    <hr>
+                    O presente trabalho foi desenvolvido como parte da
+                    disciplina de Desenvolvimento Web II do curso de Sistemas
+                    de informação da UniRedentor.
+                    <br>
+                    <h2>Nota ao professor:</h2>
+                    <br>
+                    Tal trabalho utiliza o bootstrap instalado por meio de 'gems'
+                    e o Bundle e a biblioteca <a href="https://fontawesome.com/">fontawesome</a>
+                    servida por CDN, logo, é recomendado ter conexão estabelecida
+                    com a internet para que a experiencia com a interface seja
+                    completa.
+                    <br>
+                    <br>
+                    Otávio Reis Perkles -1701299 - UniRedentor2018
+
+
+                </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
