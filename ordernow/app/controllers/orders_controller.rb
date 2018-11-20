@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+    $request_date = Date.today
+
     def index
         @orders = Order.where(data: $request_date)
     end
@@ -71,5 +73,6 @@ class OrdersController < ApplicationController
         def orders_params
             params.require(:order).permit(:data, :description, :value)
         end
+    end
 
 end
